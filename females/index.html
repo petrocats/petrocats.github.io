@@ -14,6 +14,7 @@
     <!-- Custom styles for this template -->
     <link href="/css/template.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles/default.css">
+    <link rel="stylesheet" href="/css/my.css">
 
   </head>
 
@@ -45,9 +46,85 @@
         <h1 style="padding-top: 30px; padding-bottom: 30px;">Кошки</h1>
 
 
-<table class="table">
+<table id="catsTable" class="table dataTable">
+  <thead>
+    <tr class="row">
+      <th class="col-md-2">
+      </th>
+      <th class="col-md-6">
+      </th>
+      <th class="col-md-4">
+      </th>
+    </tr>
+  </thead>
 
   <tbody>
+    <tr class="row">
+      <td class="col-md-2">
+	<img class="img-responsive" style="width:100%" src="/photos/cat1.jpeg" alt="Кошка">
+      </td>
+      <td class="col-md-6">
+	Какое-то описание
+      </td>
+      <td class="col-md-4">
+	Чьи-то контакты
+      </td>
+    </tr>
+    <tr class="row">
+      <td class="col-md-2">
+	<img class="img-responsive" style="width:100%" src="/photos/cat1.jpeg" alt="Кошка">
+      </td>
+      <td class="col-md-6">
+	Другое описание
+      </td>
+      <td class="col-md-4">
+        Другие контакты
+      </td>
+    </tr>
+    <tr class="row">
+      <td class="col-md-2">
+	<img class="img-responsive" style="width:100%" src="/photos/cat1.jpeg" alt="Кошка">
+      </td>
+      <td class="col-md-6">
+	Какое-то описание
+      </td>
+      <td class="col-md-4">
+	Чьи-то контакты
+      </td>
+    </tr>
+    <tr class="row">
+      <td class="col-md-2">
+	<img class="img-responsive" style="width:100%" src="/photos/cat1.jpeg" alt="Кошка">
+      </td>
+      <td class="col-md-6">
+	Другое описание
+      </td>
+      <td class="col-md-4">
+        Другие контакты
+      </td>
+    </tr>
+    <tr class="row">
+      <td class="col-md-2">
+	<img class="img-responsive" style="width:100%" src="/photos/cat1.jpeg" alt="Кошка">
+      </td>
+      <td class="col-md-6">
+	Какое-то описание
+      </td>
+      <td class="col-md-4">
+	Чьи-то контакты
+      </td>
+    </tr>
+    <tr class="row">
+      <td class="col-md-2">
+	<img class="img-responsive" style="width:100%" src="/photos/cat1.jpeg" alt="Кошка">
+      </td>
+      <td class="col-md-6">
+	Другое описание
+      </td>
+      <td class="col-md-4">
+        Другие контакты
+      </td>
+    </tr>
     <tr class="row">
       <td class="col-md-2">
 	<img class="img-responsive" style="width:100%" src="/photos/cat2.jpg" alt="Кошка">
@@ -73,11 +150,33 @@
     <tr class="row">
       <td class="col-md-2">
 	<img class="img-responsive" style="width:100%" src="/photos/cat2.jpg" alt="Кошка">
-      </td class="col-md-6">
-      <td>
+      </td>
+      <td class="col-md-6">
 	Какое-то описание
-      </td class="col-md-4">
-      <td>
+      </td>
+      <td class="col-md-4">
+	Чьи-то контакты
+      </td>
+    </tr>
+    <tr class="row">
+      <td class="col-md-2">
+	<img class="img-responsive" style="width:100%" src="/photos/cat2.jpg" alt="Кошка">
+      </td>
+      <td class="col-md-6">
+	Другое описание
+      </td>
+      <td class="col-md-4">
+        Другие контакты
+      </td>
+    </tr>
+    <tr class="row">
+      <td class="col-md-2">
+	<img class="img-responsive" style="width:100%" src="/photos/cat2.jpg" alt="Кошка">
+      </td>
+      <td class="col-md-6">
+	Какое-то описание
+      </td>
+      <td class="col-md-4">
 	Чьи-то контакты
       </td>
     </tr>
@@ -102,7 +201,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>  -->
     <!-- <script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script> -->
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
@@ -110,6 +209,21 @@
     <script src="/js/ie10-viewport-bug-workaround.js"></script>
     <script src="/js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- Table pagination -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+
+<script>
+$(document).ready(function() {
+    $('#catsTable').DataTable( {
+        "searching":   false,
+	"lengthChange":   false
+    } );
+} );
+</script>
 
   </body>
 </html>
