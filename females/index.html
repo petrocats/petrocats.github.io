@@ -20,14 +20,14 @@
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="/">Home</a>
+      <a class="navbar-brand" href="/">Главная</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
 	  <li class="nav-item">
-            <a class="nav-link" href="/females/">Кошки</a>
+            <a class="nav-link active" href="/females/">Кошки</a>
           </li>
 	  <li class="nav-item">
             <a class="nav-link" href="/males/">Коты</a>
@@ -39,25 +39,68 @@
       </div>
     </nav>
 
-    <div class="container">
-      <div class="col-sm-12 blog-main">
+    <div class="container-fluid">
+      <div class="col-sm-12">
         
         <h1 style="padding-top: 30px; padding-bottom: 30px;">Кошки</h1>
-        <table class="table">
 
-	<tr>
-  		<td>
-		<img src="/photos/cat2.jpg"  width="400" height="300" alt="Кошка">
-		</td>
-		<td>
-		Описание
-		</td>
-  		<td>
-		Контакты
-		</td>
-	</tr>
 
-        </table>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-md-2">Фото</th>
+      <th class="col-md-6">Описание</th>
+      <th class="col-md-4">Контакты</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+	<img class="img-responsive" style="width:100%" src="/photos/cat2.jpg" alt="Кошка">
+      </td>
+      <td>
+	Какое-то описание
+      </td>
+      <td>
+	Чьи-то контакты
+      </td>
+    </tr>
+    <tr>
+      <td>
+	<img class="img-responsive" style="width:100%" src="/photos/cat2.jpg" alt="Кошка">
+      </td>
+      <td>
+	Другое описание
+      </td>
+      <td>
+        Другие контакты
+      </td>
+    </tr>
+    <tr>
+      <td>
+	<img class="img-responsive" style="width:100%" src="/photos/cat2.jpg" alt="Кошка">
+      </td>
+      <td>
+	Какое-то описание
+      </td>
+      <td>
+	Чьи-то контакты
+      </td>
+    </tr>
+    <tr>
+      <td>
+	<img class="img-responsive" style="width:100%" src="/photos/cat2.jpg" alt="Кошка">
+      </td>
+      <td>
+	Другое описание
+      </td>
+      <td>
+        Другие контакты
+      </td>
+    </tr>
+  </tbody>
+</table>
+
       </div>
     </div><!-- /.container -->
 
