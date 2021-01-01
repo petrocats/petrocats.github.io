@@ -219,12 +219,14 @@
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 
-
 <script>
 $(document).ready(function() {
     $('#catsTable').DataTable( {
         "searching":   false,
-	"lengthChange":   false
+	"lengthChange":   false,
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Russian.json"
+        }
     } );
 } );
 </script>
