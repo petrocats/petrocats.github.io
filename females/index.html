@@ -87,9 +87,9 @@ $(document).ready(function() {
           $(row).addClass("row border");
         },
         "columns": [
-           { "className": "col-sm-2 noborders", "data": "photo", render: function(data, type) {return '<img class=\"img-responsive\" style=\"width:100%\" src=\"../photos/' + data + '\" alt=\"Кошка\">' } },
-           { "className": "col-sm-7 noborders", "data": "description" },
-           { "className": "col-sm-3 noborders", "data": "curator",
+           { "className": "noborders col-sm-2", "data": "photo", render: function(data, type) {return '<img class=\"img-responsive\" style=\"width:100%\" src=\"../photos/' + data + '\" alt=\"Кошка\">' } },
+           { "className": "noborders col-sm-7", "data": "description" },
+           { "className": "noborders col-sm-3", "data": "curator",
              render: function(data, type) {return '<p>' + data.name + '</p><p><a href = \"https://' + data.vkpage + '\">' + data.vkpage + '</a></p><p>' + data.phone + '<p>'} }
         ],
         "ajax": "../data/females.txt",
