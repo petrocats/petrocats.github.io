@@ -43,64 +43,21 @@
 
 
     <div class="container-fluid">
-      <div class="col-md-12">
+      <div class="col-sm-12">
         
         <h1 style="padding-top: 30px; padding-bottom: 30px;">Коты</h1>
 
 <table id="catsTable" class="table dataTable">
   <thead>
     <tr class="row">
-      <th class="col-md-2">
+      <th class="col-sm-2">
       </th>
-      <th class="col-md-6">
+      <th class="col-sm-7">
       </th>
-      <th class="col-md-4">
+      <th class="col-sm-3">
       </th>
     </tr>
   </thead>
-
-  <tbody class="noborders">
-    <tr class="row border">
-      <td class="col-md-2">
-	<img class="img-responsive" style="width:100%" src="/photos/Leva.jpg" alt="Кот">
-      </td>
-      <td class="col-md-6">
-	Лева. Привит, кастрирован. Крупный, пушистый, очень красивый! Воспитанный, но склонен к побегам, поэтому сетки на окнах, застекленная лоджия и отсутствие дачи - это обязательные условия.
-Отдается желательно без других животных.
-      </td>
-      <td class="col-md-4">
-	<p> Куратор: Дарья Карпикова </p>
-        <p> <a href = "https://vk.com/id18185325">vk.com/id18185325</a> </p>
-        <p> Тел. 89114110288</p>
-      </td>
-    </tr>
-    <tr class="row border">
-      <td class="col-md-2">
-	<img class="img-responsive" style="width:100%" src="/photos/goluboglazyi.jpg" alt="Кот">
-      </td>
-      <td class="col-md-6">
-	Томасик. Привит, кастрирован. Крупный, красивый, редкого окраса, с голубыми глазами. Активный, любит поиграть и побегать, обожает принимать участие во всех домашних делах. Отдается без детей и дачи, одним питомцем в семью.
-      </td>
-      <td class="col-md-4">
-	<p> Куратор: Дарья Карпикова </p>
-        <p> <a href = "https://vk.com/id18185325">vk.com/id18185325</a> </p>
-        <p> Тел. 89114110288</p>
-      </td>
-    </tr>
-    <tr class="row border">
-      <td class="col-md-2">
-	<img class="img-responsive" style="width:100%" src="/photos/Masik.jpg" alt="Кошка">
-      </td>
-      <td class="col-md-6">
-        Масик. Привит, кастрирован, чипирован, знает лоток. Молодой. В силу своего возраста, игрив, активен, любопытен. К людям бесконечно ласков, к другим животным относится хорошо.
-      </td>
-      <td class="col-md-4">
-	<p> Куратор: Дарья Карпикова </p>
-        <p> <a href = "https://vk.com/id18185325">vk.com/id18185325</a> </p>
-        <p> Тел. 89114110288</p>
-      </td>
-    </tr>
-  </tbody>
 </table>
 
       </div>
@@ -127,13 +84,23 @@
 
 <script>
 $(document).ready(function() {
-    $('#catsTable').DataTable( {
-        "searching":   false,
-	"lengthChange":   false,
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Russian.json"
-        }
-    } );
+    $("#catsTable").DataTable( {
+        createdRow: function (row, data, dataIndex) {
+          $(row).addClass("row border");
+        },
+        "columns": [
+           { "className": "col-sm-2 noborders", "data": "photo", render: function(data, type) {return '<img class=\"img-responsive\" style=\"width:100%\" src=\"../photos/' + data + '\" alt=\"Кот\">' } },
+           { "className": "col-sm-7 noborders", "data": "description" },
+           { "className": "col-sm-3 noborders", "data": "curator",
+             render: function(data, type) {return '<p>' + data.name + '</p><p><a href = \"https://' + data.vkpage + '\">' + data.vkpage + '</a></p><p>' + data.phone + '<p>'} }
+        ],
+        "ajax": "../data/males.txt",
+        "searching":    false,
+	"lengthChange": false,
+        "language":     {
+                        "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Russian.json"
+                        }
+    });
 } );
 </script>
 
