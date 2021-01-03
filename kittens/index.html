@@ -46,7 +46,14 @@
         
         <h1 style="padding-top: 30px; padding-bottom: 30px;">Котята</h1>
 
-<table id="catsTable" class="table dataTable">
+<p>
+   <input type="text" id="usersSearch" placeholder="Поиск...">
+   <input name="chrome-autofill-dummy1" style='display:none' disabled/>
+   <input name="chrome-autofill-dummy2" style='display:none' disabled/>
+   <button id="mySearchButton">Поиск</button>
+</p>
+
+<table id="catsTable" class="table dataTable" style="width:100% !important">
   <thead>
     <tr class="row">
       <th class="col-md-2">
@@ -57,9 +64,6 @@
       </th>
     </tr>
   </thead>
-
-  <tbody class="noborders">
-  </tbody>
 </table>
 
       </div>
@@ -86,14 +90,33 @@
 
 <script>
 $(document).ready(function() {
-    $('#catsTable').DataTable( {
-        "searching":   false,
-	"lengthChange":   false,
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Russian.json"
+    var table = $("#catsTable").DataTable( {
+        createdRow: function (row, data, dataIndex) {
+          $(row).addClass("row border");
+        },
+        "columns": [
+           { "className": "col-sm-2", "data": "photo", render: function(data, type) {return '<img class=\"img-responsive\" style=\"width:100%\" src=\"../photos/' + data + '\" alt=\"Кот\">' } },
+           { "className": "col-sm-7", "data": "description" },
+           { "className": "col-sm-3", "data": "curator",
+             render: function(data, type) {return '<p>' + data.name + '</p><p><a href = \"https://' + data.vkpage + '\">' + data.vkpage + '</a></p><p>' + data.phone + '<p>'} }
+        ],
+        "ajax": "../data/kittens.txt",
+        "searching":    true,
+	"lengthChange": false,
+        "language":     {
+                        "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Russian.json"
+                        },
+        "dom":  "<'row'<'col-sm-6'l>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-5'i><'col-sm-7'p>>"
+    });
+    $('#mySearchButton').on( 'keyup click', function () {
+        table.search($('#usersSearch').val()).draw();
+    });
+    $('#usersSearch').keypress(function(e){
+        if(e.which == 13) { //Enter key pressed
+            $('#mySearchButton').click(); //Trigger search button click event
         }
-    } );
-} );
+    });
+});
 </script>
 
   </body>

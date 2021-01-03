@@ -47,6 +47,13 @@
         
         <h1 style="padding-top: 30px; padding-bottom: 30px;">Коты</h1>
 
+<p>
+   <input type="text" id="usersSearch" placeholder="Поиск...">
+   <input name="chrome-autofill-dummy1" style='display:none' disabled/>
+   <input name="chrome-autofill-dummy2" style='display:none' disabled/>
+   <button id="mySearchButton">Поиск</button>
+</p>
+
 <table id="catsTable" class="table dataTable" style="width:100% !important">
   <thead>
     <tr class="row">
@@ -84,7 +91,7 @@
 
 <script>
 $(document).ready(function() {
-    $("#catsTable").DataTable( {
+    var table = $("#catsTable").DataTable( {
         createdRow: function (row, data, dataIndex) {
           $(row).addClass("row border");
         },
@@ -95,13 +102,22 @@ $(document).ready(function() {
              render: function(data, type) {return '<p>' + data.name + '</p><p><a href = \"https://' + data.vkpage + '\">' + data.vkpage + '</a></p><p>' + data.phone + '<p>'} }
         ],
         "ajax": "../data/males.txt",
-        "searching":    false,
+        "searching":    true,
 	"lengthChange": false,
         "language":     {
                         "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Russian.json"
-                        }
+                        },
+        "dom":  "<'row'<'col-sm-6'l>>" + "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-5'i><'col-sm-7'p>>"
     });
-} );
+    $('#mySearchButton').on( 'keyup click', function () {
+        table.search($('#usersSearch').val()).draw();
+    });
+    $('#usersSearch').keypress(function(e){
+        if(e.which == 13) { //Enter key pressed
+            $('#mySearchButton').click(); //Trigger search button click event
+        }
+    });
+});
 </script>
 
   </body>
